@@ -11,8 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.chainsys.AccountInfo.SelectByPremiumDAOImpl;
-import com.chainsys.UserLogin.*;
+import com.chainsys.UserLogin.LoginDAO;
+import com.chainsys.UserLogin.LoginDAOImpl;
+import com.chainsys.accountinfo.SelectByPremiumDAOImpl;
 
 @WebServlet("/LoginServelet")
 public class LoginServelet extends HttpServlet {

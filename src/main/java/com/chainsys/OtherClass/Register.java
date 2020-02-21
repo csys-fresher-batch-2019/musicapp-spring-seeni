@@ -1,4 +1,4 @@
-package com.chainsys.OtherClass;
+package com.chainsys.otherclass;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -13,7 +13,7 @@ public class Register{
 		if(sql1) {
 			Statement st=con.createStatement();
 			int row=st.executeUpdate(sql);
-			Logger.info(row);
+			Logger.getInstanceOf().info(row);
 			return true;
 		}
 		else {

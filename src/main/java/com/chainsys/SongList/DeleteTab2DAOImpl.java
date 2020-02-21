@@ -5,8 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.chainsys.OtherClass.Connection1;
-import com.chainsys.OtherClass.Logger;
+import com.chainsys.otherclass.Connection1;
+import com.chainsys.otherclass.Logger;
 
 public class DeleteTab2DAOImpl implements DeleteTab2DAO {
 	public void delRow(String sName) throws SQLException, ClassNotFoundException {
@@ -14,11 +14,11 @@ public class DeleteTab2DAOImpl implements DeleteTab2DAO {
 		try(Connection con=Connection1.connection();
 		PreparedStatement pst=con.prepareStatement(sql);){
 		
-		Logger.info(sql);
+		Logger.getInstanceOf().info(sql);
 		
 		pst.setString(1, sName);
 		int rows=pst.executeUpdate();
-		Logger.info("No. of songs deleted "+rows);
+		Logger.getInstanceOf().info("No. of songs deleted "+rows);
 		}
 	}
 }

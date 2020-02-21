@@ -1,9 +1,10 @@
 package com.chainsys.SongList;
 
 import java.sql.SQLException;
+
 import java.util.List;
 
-import com.chainsys.OtherClass.SongList;
+import com.chainsys.otherclass.SongList;
 
 public interface SelectByLikeTab2DAO {
 	

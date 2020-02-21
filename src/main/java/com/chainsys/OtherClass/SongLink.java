@@ -1,4 +1,4 @@
-package com.chainsys.OtherClass;
+package com.chainsys.otherclass;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,8 +19,5 @@ public class SongLink {
 			}System.out.println(li);
 			return li;
 		}
-	}public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		SongLink s=new SongLink();
-		s.songLink();
 	}
 }

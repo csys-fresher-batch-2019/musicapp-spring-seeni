@@ -1,4 +1,4 @@
-package com.chainsys.AccountInfo;
+package com.chainsys.accountinfo;
 
 
 import java.sql.Connection;

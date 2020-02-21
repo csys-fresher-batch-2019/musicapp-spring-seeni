@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.chainsys.OtherClass.Connection1;
-import com.chainsys.OtherClass.Logger;
-import com.chainsys.OtherClass.SongList;
+import com.chainsys.otherclass.Connection1;
+import com.chainsys.otherclass.Logger;
+import com.chainsys.otherclass.SongList;
 
 public class SelectByLikeTab2DAOImpl implements SelectByLikeTab2DAO {
 	public List<SongList> selectByLikeKey(String str) throws ClassNotFoundException, SQLException {
@@ -18,8 +18,8 @@ public class SelectByLikeTab2DAOImpl implements SelectByLikeTab2DAO {
 		try(Connection con = Connection1.connection();
 				PreparedStatement pst = con.prepareStatement(sql);
 				){
-		char[] ch=str.toCharArray();
-		Logger.info(sql);
+		//char[] ch=str.toCharArray();
+		Logger.getInstanceOf().info(sql);
 		
 		pst.setString(1, str);
 		List<SongList> li= new ArrayList<SongList>();

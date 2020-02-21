@@ -3,7 +3,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.chainsys.OtherClass.Connection1;
+import com.chainsys.otherclass.Connection1;
 
 public class UpdateTab1DAOImpl implements UpdateTab1DAO{
 		public boolean updatePhoneNo(long phNo,String email)  throws ClassNotFoundException, SQLException{

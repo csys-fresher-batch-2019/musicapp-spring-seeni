@@ -1,12 +1,12 @@
 package com.chainsys.UserLogin;
 
 import java.sql.Connection;
+import com.chainsys.otherclass.Connection1;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Random;
 
-import com.chainsys.OtherClass.Connection1;
 
 public class ForgotPasswordDAOImpl implements ForgotPasswordTab1DAO {
 	public String pwdChange(String emailId) throws SQLException, ClassNotFoundException {

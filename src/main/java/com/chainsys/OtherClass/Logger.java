@@ -1,17 +1,18 @@
-package com.chainsys.OtherClass;
+package com.chainsys.otherclass;
 
 public class Logger {
 	
-	private Logger() {
-		
+	public static Logger getInstanceOf() {
+		Logger logger =new Logger();
+		return logger;
 	}
-	public static void info(Object message) {
+	public void info(Object message) {
 		System.out.println(message);
 	}
-	public static void warn(Object message) {
+	public void warn(Object message) {
 		System.out.println(message);
 	}
-	public static void error(Object message) {
+	public void error(Object message) {
 		System.err.println(message);
 	}
 }

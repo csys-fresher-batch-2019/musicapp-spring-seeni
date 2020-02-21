@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.chainsys.OtherClass.Connection1;
-import com.chainsys.OtherClass.Logger;
+import com.chainsys.otherclass.Connection1;
+import com.chainsys.otherclass.Logger;
 
 public class SongBetweenDatesTab2DAOImpl implements SongBetweenDatesTab2DAO{
 	
@@ -19,7 +19,7 @@ public List<String> selectSongs(int releaseYearLd,int upto)  throws ClassNotFoun
 			PreparedStatement pst=con.prepareStatement(sql);
 			ResultSet rs=pst.executeQuery();){
 	
-		Logger.info(sql);
+		Logger.getInstanceOf().info(sql);
 		
 		pst.setInt(1, releaseYearLd);
 		pst.setInt(2, upto);
@@ -29,9 +29,9 @@ public List<String> selectSongs(int releaseYearLd,int upto)  throws ClassNotFoun
 			li.add(rs.getString("song_name"));
 		}
 		for (String string : li) {
-			Logger.info(string);
+			Logger.getInstanceOf().info(string);
 		}if(releaseYearLd>upto) {
-			Logger.info("Invalid year");
+			Logger.getInstanceOf().info("Invalid year");
 		}
 		
 		

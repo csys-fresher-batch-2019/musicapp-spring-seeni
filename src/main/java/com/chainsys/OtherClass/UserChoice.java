@@ -1,4 +1,4 @@
-package com.chainsys.OtherClass;
+package com.chainsys.otherclass;
 
 public class UserChoice {
 	

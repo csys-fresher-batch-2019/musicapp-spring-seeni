@@ -9,15 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.chainsys.OtherClass.Logger;
-import com.chainsys.OtherClass.Register;
-import com.chainsys.OtherClass.Userlogin;
+import com.chainsys.otherclass.Logger;
+import com.chainsys.otherclass.Register;
+import com.chainsys.otherclass.Userlogin;
 @WebServlet("/UserRegister")
 public class UserRegister extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Userlogin ul=new Userlogin();
+		com.chainsys.otherclass.Userlogin ul=new Userlogin();
 		String mail=request.getParameter("email");
 		ul.setEmailId(mail);
 		String pwd=request.getParameter("password");
@@ -43,7 +43,7 @@ public class UserRegister extends HttpServlet {
 				r.forward(request, response);
 			}
 		} catch (Exception e1) {
-			Logger.error(e1.getMessage());
+			Logger.getInstanceOf().error(e1.getMessage());
 		}
 	}
 

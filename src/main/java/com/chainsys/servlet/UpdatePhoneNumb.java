@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.chainsys.OtherClass.Logger;
-import com.chainsys.OtherClass.Msg91;
+import com.chainsys.otherclass.Logger;
+import com.chainsys.otherclass.Msg91;
 
 @WebServlet("/UpdatePhoneNum")
 public class UpdatePhoneNumb extends HttpServlet {
@@ -22,10 +22,10 @@ public class UpdatePhoneNumb extends HttpServlet {
 		 String numStr=request.getParameter("NewNumber");
 		 	long mobNum=Long.parseLong(numStr);
 			String email=(String)ses.getAttribute("mailId");
-			Logger.info(email);
+			Logger.getInstanceOf().info(email);
 			ses.setAttribute("NewMobileNumber",mobNum);
 			int otpNum=Msg91.msg(numStr);
-			Logger.info("OTP is "+otpNum);
+			Logger.getInstanceOf().info("OTP is "+otpNum);
 			ses.setAttribute("otpNum", otpNum);
 			RequestDispatcher rd=request.getRequestDispatcher("OTPVerification.jsp");
 			rd.forward(request, response);

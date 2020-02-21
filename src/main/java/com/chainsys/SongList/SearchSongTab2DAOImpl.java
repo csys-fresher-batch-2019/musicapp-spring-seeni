@@ -7,9 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.chainsys.OtherClass.Connection1;
-import com.chainsys.OtherClass.ErrorConstants;
-import com.chainsys.OtherClass.Logger;
+import com.chainsys.otherclass.Connection1;
+import com.chainsys.otherclass.Logger;
 
 public class SearchSongTab2DAOImpl implements SearchSongTab2DAO{
 	List<String> arli=null;
@@ -19,7 +18,7 @@ public class SearchSongTab2DAOImpl implements SearchSongTab2DAO{
 		try(Connection con=Connection1.connection();
 				PreparedStatement pst=con.prepareStatement(sql);
 				ResultSet rs=pst.executeQuery();){
-		Logger.info(sql);
+		Logger.getInstanceOf().info(sql);
 		arli=new ArrayList<String>();
 		while(rs.next()) {
 			arli.add(rs.getString("song_name"));

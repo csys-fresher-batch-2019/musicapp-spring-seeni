@@ -1,12 +1,10 @@
-package com.chainsys.OtherClass;
+package com.chainsys.otherclass;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Random;
-
-import com.chainsys.OtherClass.Logger;
 
 public class Msg91{
 		public static int msg(String number)
@@ -38,13 +36,13 @@ public class Msg91{
                 reader= new BufferedReader(new InputStreamReader(myURLConnection.getInputStream()));
                 String response;
                 while ((response = reader.readLine()) != null)
-                	Logger.info(response);
+                	Logger.getInstanceOf().info(response);
                 reader.close();
                 
             }
             catch (IOException e)
             {
-                    Logger.error(e.getMessage());
+                    Logger.getInstanceOf().error(e.getMessage());
             }
           
 			return message;

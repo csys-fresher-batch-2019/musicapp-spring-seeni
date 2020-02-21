@@ -1,4 +1,4 @@
-package com.chainsys.OtherClass;
+package com.chainsys.otherclass;
 
 
 public class SongList{
@@ -124,7 +124,7 @@ public class SongList{
 	}*/public static boolean nullOrNot(String name) {
 		
 		if(name.equals("")) {
-			Logger.info(ErrorConstants.checkInput);
+			Logger.getInstanceOf().info(ErrorConstants.checkInput);
 			return false;
 		}else {
 			return true;

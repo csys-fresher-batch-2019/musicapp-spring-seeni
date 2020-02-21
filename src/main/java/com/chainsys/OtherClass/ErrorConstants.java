@@ -1,4 +1,4 @@
-package com.chainsys.OtherClass;
+package com.chainsys.otherclass;
 
 public class ErrorConstants {
 	public static final String invalidInput="Invalid Input";

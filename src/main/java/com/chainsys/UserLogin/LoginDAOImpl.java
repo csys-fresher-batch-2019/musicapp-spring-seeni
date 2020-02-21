@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.chainsys.OtherClass.Connection1;
+import com.chainsys.otherclass.Connection1;
 
 public class LoginDAOImpl implements LoginDAO{
 	public boolean login(String email,String pass) throws ClassNotFoundException, SQLException {

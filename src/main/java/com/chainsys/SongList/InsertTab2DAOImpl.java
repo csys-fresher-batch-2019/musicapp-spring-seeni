@@ -4,10 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.chainsys.OtherClass.Connection1;
-import com.chainsys.OtherClass.ErrorConstants;
-import com.chainsys.OtherClass.Logger;
-import com.chainsys.OtherClass.SongList;
+import com.chainsys.otherclass.Connection1;
+import com.chainsys.otherclass.ErrorConstants;
+import com.chainsys.otherclass.Logger;
+import com.chainsys.otherclass.SongList;
 
 public class InsertTab2DAOImpl implements InsertTab2DAO{
 	public boolean insertSong(SongList sl) throws Exception  {
@@ -24,11 +24,13 @@ public class InsertTab2DAOImpl implements InsertTab2DAO{
 		pst.setString(5, sl.getMovieName());
 		pst.setString(6, sl.getSongLink());
 		int rows=pst.executeUpdate();
-		Logger.info(sql);
-		Logger.info("No.of Rows Inserted = "+rows);
+		Logger.getInstanceOf().info(sql);
+		Logger.getInstanceOf().info("No.of Rows Inserted = "+rows);
 		}
 		catch(SQLException e) {
 			throw new Exception(ErrorConstants.checkInput);
 		}return true;
 	}
+
+	
 }

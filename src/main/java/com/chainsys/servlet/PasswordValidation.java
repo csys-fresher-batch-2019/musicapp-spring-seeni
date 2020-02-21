@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.chainsys.UserLogin.ForgotPasswordDAOImpl;
 @WebServlet("/PasswordValidation")
 public class PasswordValidation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -23,7 +22,7 @@ public class PasswordValidation extends HttpServlet {
 		String mpwd=(String) session.getAttribute("mailpwd");
 		String emailID=(String)session.getAttribute("email");
 		String mailGenPwd=request.getParameter("mailpwd");
-		ForgotPasswordDAOImpl f=new ForgotPasswordDAOImpl();
+		//ForgotPasswordDAOImpl f=new ForgotPasswordDAOImpl();
 		
 			if(em.equals(emailID)&&mpwd.equals(mailGenPwd)) {
 				

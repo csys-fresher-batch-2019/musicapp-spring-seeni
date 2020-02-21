@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.chainsys.AccountInfo.*;
+import com.chainsys.accountinfo.AccountTab5Tab1DAO;
+import com.chainsys.accountinfo.AccountTab5Tab1DAOImpl;
 @WebServlet("/PremiumServlet")
 public class PremiumServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

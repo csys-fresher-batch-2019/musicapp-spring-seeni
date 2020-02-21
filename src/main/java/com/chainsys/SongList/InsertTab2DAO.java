@@ -1,6 +1,6 @@
 package com.chainsys.SongList;
 
-import com.chainsys.OtherClass.SongList;
+import com.chainsys.otherclass.SongList;
 
 public interface InsertTab2DAO {
 	
