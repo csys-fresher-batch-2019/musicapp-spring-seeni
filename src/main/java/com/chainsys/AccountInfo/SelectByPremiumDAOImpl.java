@@ -7,27 +7,29 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.chainsys.OtherClass.Connection1;
+import com.chainsys.otherclass.Connection1;
 
+/**
+ * 
+ * @author seen2380 Displays premium members email-id
+ */
 public class SelectByPremiumDAOImpl {
-	public List<String> premiumMembers(String str) throws SQLException, ClassNotFoundException{
-		String sql="select email_id from userlogin where user_id in (select user_id from account_info where premium=?)";
-		List<String> li=null;
-		try(Connection con=Connection1.connection();
-				PreparedStatement pst=con.prepareStatement(sql);){
+	public List<String> premiumMembers(String str) throws SQLException, ClassNotFoundException {
+		String sql = "select email_id from userlogin where user_id in (select user_id from account_info where premium=?)";
+		List<String> li = null;
+		try (Connection con = Connection1.connection(); PreparedStatement pst = con.prepareStatement(sql);) {
 			pst.setString(1, str);
-			try(ResultSet rs=pst.executeQuery();){
-			li=new ArrayList<>();
-			while(rs.next()) {
-				li.add(rs.getString("email_id"));
+			try (ResultSet rs = pst.executeQuery();) {
+				li = new ArrayList<>();
+				while (rs.next()) {
+					li.add(rs.getString("email_id"));
+				}
 			}
-		}
-			
-		}
-		catch(Exception e) {
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return li;
-		
+
 	}
 }

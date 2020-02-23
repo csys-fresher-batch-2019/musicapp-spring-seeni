@@ -13,15 +13,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.chainsys.SongList.SearchSongTab2DAOImpl;
 import com.chainsys.otherclass.SongLink;
+
 @WebServlet("/SongIndex")
 public class SongIndex extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+	/**
+	 * To get all the names and their respective links of the songs
+	 */
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		try {
-			//SelectByLikeTab2DAOImpl s = new SelectByLikeTab2DAOImpl();
 			SongLink sl = new SongLink();
 			List<String> li = sl.songLink();
 			SearchSongTab2DAOImpl s1 = new SearchSongTab2DAOImpl();

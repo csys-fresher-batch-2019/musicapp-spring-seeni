@@ -15,21 +15,25 @@ import com.chainsys.otherclass.Msg91;
 
 @WebServlet("/UpdatePhoneNum")
 public class UpdatePhoneNumb extends HttpServlet {
-	
-	 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-		{
-		 HttpSession ses=request.getSession();
-		 String numStr=request.getParameter("NewNumber");
-		 	long mobNum=Long.parseLong(numStr);
-			String email=(String)ses.getAttribute("mailId");
-			Logger.getInstanceOf().info(email);
-			ses.setAttribute("NewMobileNumber",mobNum);
-			int otpNum=Msg91.msg(numStr);
-			Logger.getInstanceOf().info("OTP is "+otpNum);
-			ses.setAttribute("otpNum", otpNum);
-			RequestDispatcher rd=request.getRequestDispatcher("OTPVerification.jsp");
-			rd.forward(request, response);
-			
-			response.getWriter().append("Served at: ").append(request.getContextPath());
-		}
+
+	/**
+	 * For users wants to update their phone number
+	 */
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession ses = request.getSession();
+		String numStr = request.getParameter("NewNumber");
+		long mobNum = Long.parseLong(numStr);
+		String email = (String) ses.getAttribute("mailId");
+		Logger.getInstanceOf().info(email);
+		ses.setAttribute("NewMobileNumber", mobNum);
+		int otpNum = Msg91.msg(numStr);
+		Logger.getInstanceOf().info("OTP is " + otpNum);
+		ses.setAttribute("otpNum", otpNum);
+		RequestDispatcher rd = request.getRequestDispatcher("OTPVerification.jsp");
+		rd.forward(request, response);
+
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
 }

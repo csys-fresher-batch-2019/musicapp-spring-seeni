@@ -7,7 +7,7 @@ public class AccountInfo {
 	private int balance;
 	private String premium;
 	private int premiumBal;
-	
+
 	public String getWantsToPrem() {
 		return wantsToPrem;
 	}
@@ -71,7 +71,5 @@ public class AccountInfo {
 		this.premium = premium;
 		this.premiumBal = premiumBal;
 	}
-	
-	
-	
+
 }

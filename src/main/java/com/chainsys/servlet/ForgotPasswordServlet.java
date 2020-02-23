@@ -1,4 +1,5 @@
 package com.chainsys.servlet;
+
 import com.chainsys.otherclass.Logger;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -15,25 +16,31 @@ import com.chainsys.UserLogin.ForgotPasswordDAOImpl;
 @WebServlet("/ForgotPasswordServlet")
 public class ForgotPasswordServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String email=request.getParameter("mail");
-		ForgotPasswordDAOImpl f=new ForgotPasswordDAOImpl();
+
+	/**
+	 * Check the users mailId for receiving auto-generated password for users whom
+	 * forgotten their password
+	 */
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String email = request.getParameter("mail");
+		ForgotPasswordDAOImpl f = new ForgotPasswordDAOImpl();
 		try {
-			HttpSession session=request.getSession();
-			boolean bo=f.checkEmail(email);
+			HttpSession session = request.getSession();
+			boolean bo = f.checkEmail(email);
 			Logger.getInstanceOf().info(bo);
-			if(bo) {
-				String b=f.pwdChange(email);
+			if (bo) {
+				String b = f.pwdChange(email);
 				session.setAttribute("mailpwd", b);
 				session.setAttribute("email", email);
-				Logger.getInstanceOf().info("User Email is "+email);
-				Logger.getInstanceOf().info("User Mail password is "+b);
-				RequestDispatcher rd=request.getRequestDispatcher("MailGeneratedPassword.jsp");
+				Logger.getInstanceOf().info("User Email is " + email);
+				Logger.getInstanceOf().info("User Mail password is " + b);
+				RequestDispatcher rd = request.getRequestDispatcher("MailGeneratedPassword.jsp");
 				rd.forward(request, response);
-			}else {
-				String error="Invalid EmailID";
-				response.sendRedirect("ForgotPwd.jsp?result="+error);
+			} else {
+				String error = "Invalid EmailID";
+				response.sendRedirect("ForgotPwd.jsp?result=" + error);
 			}
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -42,7 +49,7 @@ public class ForgotPasswordServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 
 }

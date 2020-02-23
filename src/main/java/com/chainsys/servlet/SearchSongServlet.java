@@ -13,25 +13,30 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.chainsys.SongList.SelectByLikeTab2DAOImpl;
 import com.chainsys.otherclass.SongList;
+
 @WebServlet("/SearchSongServlet")
 public class SearchSongServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+	/**
+	 * To search the songs by names
+	 */
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		String searchName = request.getParameter("search");
-		System.out.println(searchName);
 		SelectByLikeTab2DAOImpl s = new SelectByLikeTab2DAOImpl();
-		/*List<String> link = new ArrayList<String>();
-		List<String> song = new ArrayList<String>();
-*/
+		/*
+		 * List<String> link = new ArrayList<String>(); List<String> song = new
+		 * ArrayList<String>();
+		 */
 		try {
 
 			List<SongList> songDetailsList = s.selectByLikeKey("%" + searchName.toUpperCase() + "%");
 			System.out.println(songDetailsList);
 			request.setAttribute("songDetailsList", songDetailsList);
-			
+
 			RequestDispatcher rd = request.getRequestDispatcher("songlist.jsp");
 			rd.forward(request, response);
 
