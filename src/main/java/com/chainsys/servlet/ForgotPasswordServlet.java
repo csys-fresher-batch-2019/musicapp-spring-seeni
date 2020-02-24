@@ -31,6 +31,7 @@ public class ForgotPasswordServlet extends HttpServlet {
 			boolean bo = f.checkEmail(email);
 			Logger.getInstanceOf().info(bo);
 			if (bo) {
+				
 				String b = f.pwdChange(email);
 				session.setAttribute("mailpwd", b);
 				session.setAttribute("email", email);

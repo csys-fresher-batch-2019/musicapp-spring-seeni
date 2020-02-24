@@ -31,10 +31,14 @@ public class ForgotPasswordDAOImpl implements ForgotPasswordTab1DAO {
 					u += ch[k];
 				}
 			}
+			
+			
 			Logger.getInstanceOf().info(u);
 
 			pst.setString(1, u);
 			pst.setString(2, emailId);
+			boolean b=SendMailSSL.send("cninasav@gmail.com", "seeninasav",emailId, "Password", " Your auto-generated password is "+u);
+			System.out.println(b);
 			int rows = pst.executeUpdate();
 			Logger.getInstanceOf().info("No. of rows updated :" + rows);
 
