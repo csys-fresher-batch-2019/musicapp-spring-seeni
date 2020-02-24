@@ -28,7 +28,7 @@ public class UpdatePhoneNumb extends HttpServlet {
 		String email = (String) ses.getAttribute("mailId");
 		Logger.getInstanceOf().info(email);
 		ses.setAttribute("NewMobileNumber", mobNum);
-		int otpNum = Msg91.msg(numStr);
+		int otpNum = 111111;
 		Logger.getInstanceOf().info("OTP is " + otpNum);
 		ses.setAttribute("otpNum", otpNum);
 		RequestDispatcher rd = request.getRequestDispatcher("OTPVerification.jsp");
