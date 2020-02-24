@@ -60,7 +60,7 @@ a {
 <a href="register.jsp">Register</a>
 <br>
 <html>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	$().ready(function() {
 		if (document.referrer != 'http://192.168.56.207:8090/MusicWeb/login') {
 			history.pushState(null, null, 'login');
@@ -69,4 +69,4 @@ a {
 			});
 		}
 	});
-</script>
+</script> -->

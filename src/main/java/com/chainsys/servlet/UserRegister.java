@@ -30,12 +30,13 @@ public class UserRegister extends HttpServlet {
 		ul.setPassword(pwd);
 		String name = request.getParameter("username");
 		ul.setUserName(name);
-		String id = request.getParameter("number");
+		//String id = request.getParameter("number");
 
 		/*
 		 * int uId=Integer.parseInt(id); System.out.println(uId); ul.setUserId(uId);
 		 */
 		String mobileNo = request.getParameter("mobileNumber");
+		System.out.println(mobileNo);
 		long mobNo = Long.parseLong(mobileNo);
 		ul.setMobileNo(mobNo);
 		Register reg = new Register();

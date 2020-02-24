@@ -31,8 +31,8 @@ body {
 		<br> <b>Password</b><input type="password"
 			style="margin-left: 45px;" placeholder="Password" name="password"
 			required><br>
-		<br> <b>Mobile Number</b><input type="number" name="mobileNumber"
-			maxlength="10" placeholder="Mobile number" style="margin-left: 3px;"
+		<br> <b>Mobile Number</b><input type="tel" name="mobileNumber"
+			pattern="[0-9]{10}" placeholder="Mobile number" style="margin-left: 3px;"
 			required><br>
 		<br>
 		<button type="submit">SUBMIT</button>
