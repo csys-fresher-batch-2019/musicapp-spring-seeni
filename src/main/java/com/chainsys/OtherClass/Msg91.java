@@ -36,13 +36,13 @@ public class Msg91 {
 		mainUrl = sbPostData.toString();
 		try {
 			myURL = new URL(mainUrl);
-			myURLConnection = myURL.openConnection();
+			/*myURLConnection = myURL.openConnection();
 			myURLConnection.connect();
 			reader = new BufferedReader(new InputStreamReader(myURLConnection.getInputStream()));
 			String response;
 			while ((response = reader.readLine()) != null)
 				Logger.getInstanceOf().info(response);
-			reader.close();
+			reader.close();*/
 
 		} catch (IOException e) {
 			Logger.getInstanceOf().error(e.getMessage());
