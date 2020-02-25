@@ -18,10 +18,10 @@ public class Register {
 			String sql = "insert into userlogin(user_id,username,email_id,password,mobile_no) values(uid_seq.nextval,?,?,?,?)";
 
 			try (PreparedStatement pst = con.prepareStatement(sql);) {
-				pst.setString(2, ul.getUserName());
-				pst.setString(3, ul.getEmailId());
-				pst.setString(4, ul.getPassword());
-				pst.setLong(5, ul.getMobileNo());
+				pst.setString(1, ul.getUserName());
+				pst.setString(2, ul.getEmailId());
+				pst.setString(3, ul.getPassword());
+				pst.setLong(4, ul.getMobileNo());
 				int row = pst.executeUpdate();
 				Logger.getInstanceOf().info(row);
 
