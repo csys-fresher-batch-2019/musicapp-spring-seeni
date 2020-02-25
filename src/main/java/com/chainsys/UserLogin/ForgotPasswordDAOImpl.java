@@ -7,7 +7,6 @@ import com.chainsys.otherclass.Logger;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Random;
 
 public class ForgotPasswordDAOImpl implements ForgotPasswordTab1DAO {
 
@@ -17,11 +16,11 @@ public class ForgotPasswordDAOImpl implements ForgotPasswordTab1DAO {
 	 */
 
 	public String pwdChange(String emailId) throws SQLException, ClassNotFoundException {
-		String u = "";
+		String u = "pass1234";
 		String sql = "update userlogin set password=? where email_id=?";
-		String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
+		//String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
 		try (Connection con = Connection1.connection(); PreparedStatement pst = con.prepareStatement(sql);) {
-			String[] ch = characters.split("");
+			/*String[] ch = characters.split("");
 			Random rand = new Random();
 
 			for (int i = 0; i < 7; i++) {
@@ -29,7 +28,7 @@ public class ForgotPasswordDAOImpl implements ForgotPasswordTab1DAO {
 				int k = i * p;
 				if (k <= characters.length()) {
 					u += ch[k];
-				}
+				}*/
 			
 			
 			
@@ -41,7 +40,7 @@ public class ForgotPasswordDAOImpl implements ForgotPasswordTab1DAO {
 			System.out.println(b);
 			int rows = pst.executeUpdate();
 			Logger.getInstanceOf().info("No. of rows updated :" + rows);
-			}
+
 		} catch (Exception e) {
 			e.getMessage();
 		}
