@@ -16,24 +16,23 @@ import com.chainsys.otherclass.Connection1;
 public class SelectByPremiumDAOImpl {
 	public List<String> premiumMembers(String str) throws SQLException, ClassNotFoundException {
 		String sql = "select email_id from userlogin where user_id in (select user_id from account_info where premium=?)";
-		//List<String> li = null;
+		List<String> li = null;
 		try (Connection con = Connection1.connection(); PreparedStatement pst = con.prepareStatement(sql);) {
 			pst.setString(1, str);
 			try (ResultSet rs = pst.executeQuery();) {
-				List<String> li = new ArrayList<>();
+				li = new ArrayList<>();
 				while (rs.next()) {
 					li.add(rs.getString("email_id"));
-					
+
 				}
-				System.out.println("ArrayList is "+li);
-				return li;
+				System.out.println("ArrayList is " + li);
+
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null;
-		
+		return li;
 
 	}
 }

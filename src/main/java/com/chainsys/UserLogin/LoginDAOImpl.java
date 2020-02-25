@@ -24,9 +24,7 @@ public class LoginDAOImpl implements LoginDAO {
 			ResultSet rs = pst.executeQuery();
 			if (rs.next()) {
 				return true;
-			} else {
-				return false;
-			}
+			} 
 		} catch (Exception e) {
 			e.getMessage();
 		}

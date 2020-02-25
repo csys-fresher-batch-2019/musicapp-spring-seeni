@@ -22,15 +22,11 @@ public class Register {
 				Statement st = con.createStatement();
 				int row = st.executeUpdate(sql);
 				Logger.getInstanceOf().info(row);
-				System.out.println("true");
-				return true;
-			} else {
-				System.out.println("false");
-				return false;
+
 			}
 		} catch (Exception e) {
 			Logger.getInstanceOf().info(e.getMessage());
 		}
-		return false;
+		return true;
 	}
 }
