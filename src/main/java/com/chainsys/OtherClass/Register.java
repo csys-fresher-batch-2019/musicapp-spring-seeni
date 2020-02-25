@@ -15,10 +15,9 @@ import java.sql.Statement;
 public class Register {
 	public boolean register(Userlogin ul) throws ClassNotFoundException, SQLException {
 		try (Connection con = Connection1.connection();) {
-			String sql = "insert into userlogin(user_id,username,email_id,password,mobile_no) values(?,?,?,?,?)";
+			String sql = "insert into userlogin(user_id,username,email_id,password,mobile_no) values(uid_seq.nextval,?,?,?,?)";
 
 			try (PreparedStatement pst = con.prepareStatement(sql);) {
-				pst.setInt(1, ul.getUserId());
 				pst.setString(2, ul.getUserName());
 				pst.setString(3, ul.getEmailId());
 				pst.setString(4, ul.getPassword());
