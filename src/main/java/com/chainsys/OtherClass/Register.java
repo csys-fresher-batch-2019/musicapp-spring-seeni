@@ -1,6 +1,7 @@
 package com.chainsys.otherclass;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -14,19 +15,19 @@ import java.sql.Statement;
 public class Register {
 	public boolean register(Userlogin ul) throws ClassNotFoundException, SQLException {
 		try (Connection con = Connection1.connection();) {
-			String sql = "insert into userlogin(user_id,username,email_id,password,mobile_no) values(uid_seq.nextval,'"
-					+ ul.getUserName() + "','" + ul.getEmailId() + "','" + ul.getPassword() + "'," + ul.getMobileNo()
-					+ ")";
-			boolean sql1 = true;
-			if (sql1) {
-				Statement st = con.createStatement();
-				int row = st.executeUpdate(sql);
+			String sql = "insert into userlogin(user_id,username,email_id,password,mobile_no) values(?,?,?,?,?)";
+
+			try (PreparedStatement pst = con.prepareStatement(sql);) {
+				pst.setInt(1, ul.getUserId());
+				pst.setString(2, ul.getUserName());
+				pst.setString(3, ul.getEmailId());
+				pst.setString(4, ul.getPassword());
+				pst.setLong(5, ul.getMobileNo());
+				int row = pst.executeUpdate(sql);
 				Logger.getInstanceOf().info(row);
 
 			}
-		} catch (Exception e) {
-			Logger.getInstanceOf().info(e.getMessage());
+			return true;
 		}
-		return true;
 	}
 }
