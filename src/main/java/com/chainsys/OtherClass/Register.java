@@ -23,7 +23,7 @@ public class Register {
 				pst.setString(3, ul.getEmailId());
 				pst.setString(4, ul.getPassword());
 				pst.setLong(5, ul.getMobileNo());
-				int row = pst.executeUpdate(sql);
+				int row = pst.executeUpdate();
 				Logger.getInstanceOf().info(row);
 
 			}
