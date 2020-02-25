@@ -16,7 +16,7 @@ public class ForgotPasswordDAOImpl implements ForgotPasswordTab1DAO {
 	 */
 
 	public String pwdChange(String emailId) throws SQLException, ClassNotFoundException {
-		String u = "password";
+		String u = "pass1234";
 		String sql = "update userlogin set password=? where email_id=?";
 		//String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
 		try (Connection con = Connection1.connection(); PreparedStatement pst = con.prepareStatement(sql);) {

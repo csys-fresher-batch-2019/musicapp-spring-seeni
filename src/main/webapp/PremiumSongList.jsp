@@ -84,7 +84,7 @@ thead {
 						for (int j = 0; j < li.size(); j++) {
 							if (i == j) {
 								out.println("<tr><td>" + k++ + "</td><td>" + song.get(i)
-										+ "</td><td><audio controls><source src='Assets/Images/" + li.get(j)
+										+ "</td><td><audio controls controlsList='download'><source src='Assets/Images/" + li.get(j)
 										+ "' type='audio/mpeg'></source></audio></td></tr>");
 							}
 						}
