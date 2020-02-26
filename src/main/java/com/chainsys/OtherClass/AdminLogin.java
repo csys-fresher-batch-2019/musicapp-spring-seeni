@@ -29,11 +29,11 @@ public class AdminLogin {
 			while (rs.next()) {
 				li.add(rs.getString("email_id"));
 				li.add(rs.getString("password"));
-
+				return true;
 			}
 
 		}
-		return true;
-
+		
+		return false;
 	}
 }
