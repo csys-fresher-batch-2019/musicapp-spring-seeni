@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+​
+function loadProducts(){
+    let url = "http://apigroceryapplicationin.cfapps.io/api/viewproducts";
+    $.getJSON(url, function(data){
+        let products = data;
+        console.log(products.length);
+        console.table(products);
+      displayProducts(products);
+​
+    });
+​
+    function displayProducts(products){
+​
+        let i = 0;
+        var content = "";
+        for(let p of products){
+            i = i +1;
+            var row = `<tr><td>${i}</td><td>${p.productName}</td></tr>`;
+            content = content + row;
+        }
+        $("#productTbl").append(content);
+        
+    }
+}
+</script>
+</head>
+​
+<body>
+    <h3>List Products API</h3>
+    <button onclick="loadProducts()"> Display Products</button>
+    <table border="1">
+        <thead><tr><th>#</th><th>Name</th></tr></thead>
+        <tbody id="productTbl">
+​
+​
+        </tbody>
+    </table>
+</body>
+</html>

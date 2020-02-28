@@ -27,14 +27,12 @@ public class SearchSongTab2DAOImpl implements SearchSongTab2DAO {
 			while (rs.next()) {
 				arli.add(rs.getString("song_name"));
 			}
-			for (String string : arli) {
-				System.out.println(string);
-			}
-
+			
 		} catch (Exception e) {
 			// throw new Exception(ErrorConstants.checkInput);
 			e.getMessage();
 		}
+		
 		return arli;
 	}
 }
