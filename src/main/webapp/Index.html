@@ -8,7 +8,7 @@
 <script>
 ​
 function loadProducts(){
-    let url = "http://apigroceryapplicationin.cfapps.io/api/viewproducts";
+    let url = "https://apimusicappin.cfapps.io/api/songlist";
     $.getJSON(url, function(data){
         let products = data;
         console.log(products.length);
@@ -23,7 +23,7 @@ function loadProducts(){
         var content = "";
         for(let p of products){
             i = i +1;
-            var row = `<tr><td>${i}</td><td>${p.productName}</td></tr>`;
+            var row = `<tr><td>${i}</td><td>${p.songlist}</td></tr>`;
             content = content + row;
         }
         $("#productTbl").append(content);
