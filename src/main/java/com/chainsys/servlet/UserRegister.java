@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.chainsys.otherclass.Logger;
-import com.chainsys.otherclass.Register;
-import com.chainsys.otherclass.Userlogin;
+import com.chainsys.models.Userlogin;
+import com.chainsys.musicapp.util.Logger;
+import com.chainsys.service.RegisterService;
 
 @WebServlet("/UserRegister")
 public class UserRegister extends HttpServlet {
@@ -23,7 +23,7 @@ public class UserRegister extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		com.chainsys.otherclass.Userlogin ul = new Userlogin();
+		com.chainsys.models.Userlogin ul = new Userlogin();
 		String mail = request.getParameter("email");
 		ul.setEmailId(mail);
 		String pwd = request.getParameter("password");
@@ -39,10 +39,9 @@ public class UserRegister extends HttpServlet {
 		System.out.println(mobileNo);
 		long mobNo = Long.parseLong(mobileNo);
 		ul.setMobileNo(mobNo);
-		Register reg = new Register();
 		try {
 
-			boolean res = reg.register(ul);
+			boolean res = RegisterService.register(ul);
 			if (res) {
 				RequestDispatcher r = request.getRequestDispatcher("login.jsp");
 				r.forward(request, response);

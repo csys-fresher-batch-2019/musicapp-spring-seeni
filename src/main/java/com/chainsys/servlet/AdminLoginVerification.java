@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.chainsys.otherclass.AdminLogin;
+import com.chainsys.musicapp.DAO.AdminLoginDAO;
+import com.chainsys.musicapp.implementation.AdminLoginDAOImpl;
+import com.chainsys.service.AdminDetailService;
 
 @WebServlet("/AdminLoginVerification")
 public class AdminLoginVerification extends HttpServlet {
@@ -30,7 +32,7 @@ public class AdminLoginVerification extends HttpServlet {
 		String pwd = request.getParameter("password");
 		System.out.println("Password is " + pwd);
 		try {
-			boolean li = AdminLogin.adminDetails(email, pwd);
+			boolean li = AdminDetailService.adminDetailService(email, pwd);
 			if (li) {
 				RequestDispatcher rd = request.getRequestDispatcher("DisplayForAdmin.jsp");
 				rd.forward(request, response);

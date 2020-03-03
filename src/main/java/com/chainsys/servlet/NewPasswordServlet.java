@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.chainsys.UserLogin.ForgotPasswordDAOImpl;
+import com.chainsys.musicapp.implementation.ForgotPasswordDAOImpl;
+import com.chainsys.service.ForgotPasswordService;
 
 @WebServlet("/NewPasswordServlet")
 public class NewPasswordServlet extends HttpServlet {
@@ -28,10 +29,9 @@ public class NewPasswordServlet extends HttpServlet {
 		System.out.println(mailId);
 		String newPass = request.getParameter("newpwd");
 		String cnfmPass = request.getParameter("cnfmpwd");
-		ForgotPasswordDAOImpl f = new ForgotPasswordDAOImpl();
 		if (newPass.equals(cnfmPass)) {
 			try {
-				boolean b = f.newPassUpdate(cnfmPass, mailId);
+				boolean b = ForgotPasswordService.newPassUpdate(cnfmPass, mailId);
 				if (b) {
 					RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 					rd.forward(request, response);

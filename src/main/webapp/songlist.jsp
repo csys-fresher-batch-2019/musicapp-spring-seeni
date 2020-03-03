@@ -1,11 +1,12 @@
-<%@page import="com.chainsys.otherclass.SongList"%>
+<%@page import="com.chainsys.models.SongList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.ArrayList"%>
-<%@ page import="com.chainsys.otherclass.SongList.*"%>
-<%@ page import="com.chainsys.otherclass.SongLink"%>
-<%@ page import="com.chainsys.SongList.*"%>
+<%@ page import="com.chainsys.models.SongList.*"%>
+<%@ page import="com.chainsys.musicapp.implementation.SongLinkDAOImpl"%>
+<%@ page import="com.chainsys.models.SongList.*"%>
+<%@ page import="com.chainsys.musicapp.implementation.*"%>
 
 <html>
 <head>
@@ -62,10 +63,10 @@ thead {
 			<%
 				int k = 1;
 
-				if (songList != null)
-					for (SongList song : songList) {
-						String songName = song.getSongName();
-						String link = song.getSongLink();
+					if (songList != null)
+						for (SongList song : songList) {
+							String songName = song.getSongName();
+							String link = song.getSongLink();
 			%>
 			<tr>
 				<td><%=k++%></td>
@@ -76,22 +77,22 @@ thead {
 			</tr>
 			<%
 				}
-				else {
+					else {
 
-					SongLink sl = new SongLink();
-					List<String> li = sl.songLink();
-					SearchSongTab2DAOImpl s = new SearchSongTab2DAOImpl();
-					List<String> song = s.searchSongName();
-					for (int i = 0; i < song.size(); i++) {
-						for (int j = 0; j < li.size(); j++) {
-							if (i == j) {
-								out.println("<tr><td>" + k++ + "</td><td>" + song.get(i)
-										+ "</td><td><audio controls controlsList='nodownload'<source src='Assets/Images/"
-										+ li.get(j) + "' type='audio/mpeg'></source></audio></td></tr>");
+						SongLinkDAOImpl sl = new SongLinkDAOImpl();
+						List<String> li = sl.songLink();
+						SearchSongTab2DAOImpl s = new SearchSongTab2DAOImpl();
+						List<String> song = s.searchSongName();
+						for (int i = 0; i < song.size(); i++) {
+							for (int j = 0; j < li.size(); j++) {
+								if (i == j) {
+									out.println("<tr><td>" + k++ + "</td><td>" + song.get(i)
+											+ "</td><td><audio controls controlsList='nodownload'<source src='Assets/Images/"
+											+ li.get(j) + "' type='audio/mpeg'></source></audio></td></tr>");
+								}
 							}
 						}
 					}
-				}
 			%>
 		</tbody>
 	</table>

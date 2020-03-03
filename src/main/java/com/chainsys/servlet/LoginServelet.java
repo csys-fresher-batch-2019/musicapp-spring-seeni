@@ -11,9 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.chainsys.UserLogin.LoginDAO;
-import com.chainsys.UserLogin.LoginDAOImpl;
-import com.chainsys.accountinfo.SelectByPremiumDAOImpl;
+import com.chainsys.musicapp.DAO.LoginDAO;
+import com.chainsys.musicapp.implementation.LoginDAOImpl;
+import com.chainsys.musicapp.implementation.SelectByPremiumDAOImpl;
+import com.chainsys.service.LoginService;
+import com.chainsys.service.SelectByPremiumService;
 
 @WebServlet("/LoginServelet")
 public class LoginServelet extends HttpServlet {
@@ -33,12 +35,10 @@ public class LoginServelet extends HttpServlet {
 		System.out.println("EmailId= " + mailID);
 		String pwd = request.getParameter("password");
 		System.out.println("Password:" + pwd);
-		LoginDAO l = new LoginDAOImpl();
 		try {
-			boolean insert = l.login(mailID, pwd);
+			boolean insert = LoginService.login(mailID, pwd);
 			if (insert) {
-				SelectByPremiumDAOImpl s = new SelectByPremiumDAOImpl();
-				List<String> li = s.premiumMembers("Y");
+				List<String> li = SelectByPremiumService.premiumMembers("Y");
 				for (String mailCheck : li) {
 					if (mailCheck.equals(mailID)) {
 						RequestDispatcher r = request.getRequestDispatcher("PremiumNextContent.jsp");

@@ -9,9 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.chainsys.SongList.InsertTab2DAO;
-import com.chainsys.SongList.InsertTab2DAOImpl;
-import com.chainsys.otherclass.SongList;
+import com.chainsys.models.SongList;
+import com.chainsys.service.InsertSongService;
 
 @WebServlet("/SongListServlet")
 public class SongListServlet extends HttpServlet {
@@ -37,9 +36,9 @@ public class SongListServlet extends HttpServlet {
 		sl.setMovieName(movie);
 		String songLink = request.getParameter("slink");
 		sl.setSongLink(songLink);
-		InsertTab2DAO in = new InsertTab2DAOImpl();
+		
 		try {
-			boolean b = in.insertSong(sl);
+			boolean b = InsertSongService.insertSong(sl);
 			if (b) {
 				PrintWriter out = response.getWriter();
 				out.println("<h1>Successfully Inserted</h1>");

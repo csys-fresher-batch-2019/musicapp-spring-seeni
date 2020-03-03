@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.chainsys.SongList.SearchSongTab2DAOImpl;
-import com.chainsys.otherclass.SongLink;
+import com.chainsys.musicapp.implementation.SearchSongTab2DAOImpl;
+import com.chainsys.musicapp.implementation.SongLinkDAOImpl;
+import com.chainsys.service.SearchSongService;
+import com.chainsys.service.SongLinkService;
 
 @WebServlet("/SongIndex")
 public class SongIndex extends HttpServlet {
@@ -26,10 +28,9 @@ public class SongIndex extends HttpServlet {
 			throws ServletException, IOException {
 
 		try {
-			SongLink sl = new SongLink();
-			List<String> li = sl.songLink();
-			SearchSongTab2DAOImpl s1 = new SearchSongTab2DAOImpl();
-			List<String> song = s1.searchSongName();
+			
+			List<String> li = SongLinkService.songLink();
+			List<String> song = SearchSongService.searchSongName();
 			request.setAttribute("songlink", li);
 			request.setAttribute("song", song);
 

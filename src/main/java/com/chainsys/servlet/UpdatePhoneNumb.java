@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.chainsys.otherclass.Logger;
+import com.chainsys.musicapp.util.Logger;
 
 @WebServlet("/UpdatePhoneNum")
 public class UpdatePhoneNumb extends HttpServlet {

@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.chainsys.UserLogin.UpdateTab1DAOImpl;
+import com.chainsys.musicapp.implementation.UpdateTab1DAOImpl;
+import com.chainsys.service.UpdatePhoneNumberService;
 
 @WebServlet("/OTPValidation")
 public class OTPValidation extends HttpServlet {
@@ -28,11 +29,9 @@ public class OTPValidation extends HttpServlet {
 		long number = (Long) sess.getAttribute("NewMobileNumber");
 		int otp = Integer.parseInt(request.getParameter("otp"));
 		int otpNumber = (Integer) sess.getAttribute("otpNum");
-		// int otp =Msg91.msg("6379434293");
-		UpdateTab1DAOImpl u = new UpdateTab1DAOImpl();
 		if (otp == otpNumber) {
 			try {
-				u.updatePhoneNo(number, userMailID);
+				UpdatePhoneNumberService.updatePhoneNo(number, userMailID);
 				PrintWriter out = response.getWriter();
 				out.println("<h1>Successfully updated</h1>");
 			} catch (ClassNotFoundException e) {

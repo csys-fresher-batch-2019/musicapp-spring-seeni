@@ -1,6 +1,5 @@
 package com.chainsys.servlet;
 
-import com.chainsys.otherclass.Logger;
 import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
@@ -11,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.chainsys.UserLogin.ForgotPasswordDAOImpl;
+import com.chainsys.musicapp.implementation.ForgotPasswordDAOImpl;
+import com.chainsys.musicapp.util.Logger;
+import com.chainsys.service.ForgotPasswordService;
 
 @WebServlet("/ForgotPasswordServlet")
 public class ForgotPasswordServlet extends HttpServlet {
@@ -25,14 +26,13 @@ public class ForgotPasswordServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String email = request.getParameter("mail");
-		ForgotPasswordDAOImpl f = new ForgotPasswordDAOImpl();
+		
 		try {
 			HttpSession session = request.getSession();
-			boolean bo = f.checkEmail(email);
-			Logger.getInstanceOf().info(bo);
+			boolean bo = ForgotPasswordService.checkEmail(email);
 			if (bo) {
 				
-				String b = f.pwdChange(email);
+				String b = ForgotPasswordService.pwdChange(email);
 				session.setAttribute("mailpwd", b);
 				session.setAttribute("email", email);
 				Logger.getInstanceOf().info("User Email is " + email);
