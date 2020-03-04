@@ -16,7 +16,7 @@ import com.chainsys.musicapp.util.Logger;
  * @author seen2380
  *
  */
-@Repository
+
 public class DeleteTab2DAOImpl implements DeleteTab2DAO {
 	public void delRow(String sName) throws SQLException, ClassNotFoundException {
 		String sql = "delete song_list where song_number=?";

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.chainsys.musicapp.DAO.SelectByPremiumDAO;
 import com.chainsys.musicapp.implementation.SelectByPremiumDAOImpl;
-@Service
 public class SelectByPremiumService {
 
 	static SelectByPremiumDAO s=new SelectByPremiumDAOImpl();

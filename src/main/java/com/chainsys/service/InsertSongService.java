@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import com.chainsys.models.SongList;
 import com.chainsys.musicapp.DAO.InsertTab2DAO;
 import com.chainsys.musicapp.implementation.InsertTab2DAOImpl;
-@Service
 public class InsertSongService {
 
 	static InsertTab2DAO in = new InsertTab2DAOImpl();

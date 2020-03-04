@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.chainsys.musicapp.DAO.SearchSongTab2DAO;
 import com.chainsys.musicapp.implementation.SearchSongTab2DAOImpl;
-@Service
 public class SearchSongService {
 	
 	static SearchSongTab2DAO s1 = new SearchSongTab2DAOImpl();

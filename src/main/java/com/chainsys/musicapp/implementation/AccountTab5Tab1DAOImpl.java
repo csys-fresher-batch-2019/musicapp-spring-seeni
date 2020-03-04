@@ -19,7 +19,7 @@ import com.chainsys.musicapp.util.Logger;
  * @author seen2380 Displays premium members name
  */
 
-@Repository
+
 public class AccountTab5Tab1DAOImpl implements AccountTab5Tab1DAO {
 	public List<String> accountInfo(String str) throws DbException {
 		List<String> li = null;

@@ -13,7 +13,6 @@ import org.springframework.stereotype.Repository;
 import com.chainsys.musicapp.DAO.SearchSongTab2DAO;
 import com.chainsys.musicapp.util.Connection1;
 import com.chainsys.musicapp.util.Logger;
-@Repository
 public class SearchSongTab2DAOImpl implements SearchSongTab2DAO {
 
 	/**

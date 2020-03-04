@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.TimeZone;
 
 import org.springframework.stereotype.Component;
-@Component
 public class Connection1 {
 
 	/**

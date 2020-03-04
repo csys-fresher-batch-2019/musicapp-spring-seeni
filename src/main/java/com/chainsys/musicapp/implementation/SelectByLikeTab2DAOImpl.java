@@ -13,7 +13,6 @@ import com.chainsys.models.SongList;
 import com.chainsys.musicapp.DAO.SelectByLikeTab2DAO;
 import com.chainsys.musicapp.util.Connection1;
 import com.chainsys.musicapp.util.Logger;
-@Repository
 public class SelectByLikeTab2DAOImpl implements SelectByLikeTab2DAO {
 
 	/**

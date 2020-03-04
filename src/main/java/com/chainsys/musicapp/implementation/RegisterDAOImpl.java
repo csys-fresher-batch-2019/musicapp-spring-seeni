@@ -18,7 +18,6 @@ import com.chainsys.musicapp.util.Logger;
  * @author seen2380
  *
  */
-@Repository
 public class RegisterDAOImpl implements RegisterDAO {
 	public boolean register(Userlogin ul) throws ClassNotFoundException, SQLException {
 		try (Connection con = Connection1.connection();) {

@@ -16,7 +16,6 @@ import com.chainsys.musicapp.util.Connection1;
  * 
  * @author seen2380 Displays premium members email-id
  */
-@Repository
 public class SelectByPremiumDAOImpl implements SelectByPremiumDAO{
 	public List<String> premiumMembers(String str) throws SQLException, ClassNotFoundException {
 		String sql = "select email_id from userlogin where user_id in (select user_id from account_info where premium=?)";

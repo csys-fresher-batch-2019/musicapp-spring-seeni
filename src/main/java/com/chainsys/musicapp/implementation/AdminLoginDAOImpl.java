@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.chainsys.musicapp.DAO.AdminLoginDAO;
 import com.chainsys.musicapp.util.Connection1;
-@Repository
+
 public class AdminLoginDAOImpl implements AdminLoginDAO{
 
 	/**

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.chainsys.models.SongList;
 import com.chainsys.musicapp.DAO.SelectByLikeTab2DAO;
 import com.chainsys.musicapp.implementation.SelectByLikeTab2DAOImpl;
-@Service
 public class SelectByLikeService {
 	
 	static SelectByLikeTab2DAO s = new SelectByLikeTab2DAOImpl();

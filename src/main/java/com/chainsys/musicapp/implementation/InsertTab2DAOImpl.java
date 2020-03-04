@@ -11,7 +11,6 @@ import com.chainsys.musicapp.DAO.InsertTab2DAO;
 import com.chainsys.musicapp.util.Connection1;
 import com.chainsys.musicapp.util.ErrorConstants;
 import com.chainsys.musicapp.util.Logger;
-@Repository
 public class InsertTab2DAOImpl implements InsertTab2DAO {
 
 	/**

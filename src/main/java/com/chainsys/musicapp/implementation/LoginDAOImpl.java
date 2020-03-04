@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import com.chainsys.musicapp.DAO.LoginDAO;
 import com.chainsys.musicapp.util.Connection1;
-@Repository
 public class LoginDAOImpl implements LoginDAO {
 
 	/**

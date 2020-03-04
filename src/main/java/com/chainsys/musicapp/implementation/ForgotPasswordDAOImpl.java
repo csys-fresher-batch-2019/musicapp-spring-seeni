@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.chainsys.musicapp.DAO.ForgotPasswordTab1DAO;
 import com.chainsys.musicapp.util.Connection1;
 import com.chainsys.musicapp.util.Logger;
-@Repository
+
 public class ForgotPasswordDAOImpl implements ForgotPasswordTab1DAO {
 
 	/**

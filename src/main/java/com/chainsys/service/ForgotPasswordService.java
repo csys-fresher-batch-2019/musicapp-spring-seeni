@@ -4,7 +4,6 @@ import java.sql.SQLException;
 
 import org.springframework.stereotype.Service;
 import com.chainsys.musicapp.DAO.ForgotPasswordTab1DAO;
-@Service
 public class ForgotPasswordService {
 	
 	static ForgotPasswordTab1DAO f;

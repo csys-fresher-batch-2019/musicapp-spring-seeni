@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import com.chainsys.musicapp.DAO.UpdateTab1DAO;
 import com.chainsys.musicapp.util.Connection1;
-@Repository
 public class UpdateTab1DAOImpl implements UpdateTab1DAO {
 
 	/**
