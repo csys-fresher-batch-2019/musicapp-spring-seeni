@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.springframework.stereotype.Repository;
+
 import com.chainsys.models.Userlogin;
 import com.chainsys.musicapp.DAO.RegisterDAO;
 import com.chainsys.musicapp.util.Connection1;
@@ -16,7 +18,7 @@ import com.chainsys.musicapp.util.Logger;
  * @author seen2380
  *
  */
-
+@Repository
 public class RegisterDAOImpl implements RegisterDAO {
 	public boolean register(Userlogin ul) throws ClassNotFoundException, SQLException {
 		try (Connection con = Connection1.connection();) {

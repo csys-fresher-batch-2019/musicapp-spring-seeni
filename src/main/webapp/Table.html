@@ -13,26 +13,29 @@
 	}
 	</style>
 <body>
-	<button onclick="table()">Show table</button>
+	<button onclick="table()">Click to view songs</button>
 	<table border="1">
-	<thead><td>#</td><td>Song Name</td><td>Song</td></thead>
+	<thead><th>SNO</th><th>Song Name</th><th>Songs</th></thead>
 	<tbody id="table1" > </tbody>
 	</table>
 	
 </body>
 	<script>
 	function table(){
+		$("#table1").empty();
 		let url1 =['https://apimusicappin.cfapps.io/api/songlist','https://apimusicappin.cfapps.io/api/songpath'];
 		$.getJSON(url1[0],function(data){
 			let songs=data;
+			let a=0;
 			for(let i=0;i<songs.length;i++){
 				$.getJSON(url1[1],function(data){
 					let songsPath=data;
 					var content="";
+					
 					for(let j=0;j<songsPath.length;j++){
 						if(i==j){
-							console.log(j);
-							var row=`<tr><td>${i}</td><td>${songs[i]}</td><td><audio controls><source src='Assets/Images/${songsPath[j]}' type='audio/mpeg'></source></audio></td></tr>`;
+							a=a+1;
+							var row=`<tr><td>${a}</td><td>${songs[i]}</td><td><audio controls><source src='Assets/Images/${songsPath[j]}' type='audio/mpeg'></source></audio></td></tr>`;
 							content=content+row;
 							console.log(row);
 						}
@@ -43,21 +46,6 @@
 			}
 			
 		})
-	
-		
-		
-		/* let url ='https://apimusicappin.cfapps.io/api/songpath';
-		$.getJSON(url,function(data){
-			console.log(data);
-			var content="";
-			for(let i=0;i<data.length;i++){
-				let a=i+1;
-				var row=`<tr><td>${a}</td><td><audio controls><source src='Assets/Images/${data[i]}' type='audio/mpeg'></audio></td></tr>`;
-				content=content+row;
-			}
-			console.log(content);
-			$("#table1").append(content);
-		}) */
 	}
 	</script>
 	

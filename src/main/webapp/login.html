@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	Enter your username
+	<form action="login">
+	<input type="text" id="username" required>
+	<br> Password
+	<input type="password" id="pwd" required>
+	<br>
+	<button onclick="loginvalid()" type="submit">Enter</button>
+	</form> 
+	<script type="text/javascript">
+		function loginvalid() {
+			var username=document.getElementById("username").value;
+			var pwd=document.getElementById("pwd").value;
+			login(username,pwd);
+		}
+	</script>
+</body>
+</html>

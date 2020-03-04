@@ -7,10 +7,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.chainsys.musicapp.DAO.SongBetweenDatesTab2DAO;
 import com.chainsys.musicapp.util.Connection1;
 import com.chainsys.musicapp.util.Logger;
-
+@Repository
 public class SongBetweenDatesTab2DAOImpl implements SongBetweenDatesTab2DAO {
 
 	/**

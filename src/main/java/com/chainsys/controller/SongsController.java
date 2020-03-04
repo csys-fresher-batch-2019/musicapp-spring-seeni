@@ -7,11 +7,13 @@ import java.util.List;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.chainsys.musicapp.DAO.SearchSongTab2DAO;
 import com.chainsys.musicapp.implementation.SearchSongTab2DAOImpl;
 import com.chainsys.musicapp.implementation.SongLinkDAOImpl;
+import com.chainsys.service.LoginService;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -36,5 +38,12 @@ public class SongsController {
 	public List<String> songPath() throws ClassNotFoundException, SQLException{
 		SongLinkDAOImpl sl = new SongLinkDAOImpl();
 		return sl.songLink();
+	}
+	
+	@GetMapping("/login")
+	public boolean login(@RequestParam("username") String username,
+			@RequestParam("pwd") String pwd) throws ClassNotFoundException, SQLException {
+		return LoginService.login(username, pwd);
+//		return "login.html";
 	}
 }

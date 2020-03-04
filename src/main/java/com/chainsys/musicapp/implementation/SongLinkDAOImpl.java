@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.chainsys.musicapp.DAO.SongLinkDAO;
 import com.chainsys.musicapp.util.Connection1;
 
@@ -16,7 +18,7 @@ import com.chainsys.musicapp.util.Connection1;
  * @author seen2380
  *
  */
-
+@Repository
 public class SongLinkDAOImpl implements SongLinkDAO {
 	public List<String> songLink() throws SQLException, ClassNotFoundException {
 		String sql = "select song_link from song_list";

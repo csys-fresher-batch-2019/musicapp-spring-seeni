@@ -5,9 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.springframework.stereotype.Repository;
+
 import com.chainsys.musicapp.DAO.LoginDAO;
 import com.chainsys.musicapp.util.Connection1;
-
+@Repository
 public class LoginDAOImpl implements LoginDAO {
 
 	/**

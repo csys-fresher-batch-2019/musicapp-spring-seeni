@@ -11,9 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.chainsys.musicapp.DAO.LoginDAO;
-import com.chainsys.musicapp.implementation.LoginDAOImpl;
-import com.chainsys.musicapp.implementation.SelectByPremiumDAOImpl;
 import com.chainsys.service.LoginService;
 import com.chainsys.service.SelectByPremiumService;
 

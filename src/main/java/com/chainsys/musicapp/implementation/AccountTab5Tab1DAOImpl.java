@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.chainsys.musicapp.DAO.AccountTab5Tab1DAO;
 import com.chainsys.musicapp.util.Connection1;
 import com.chainsys.musicapp.util.DbException;
@@ -16,6 +18,8 @@ import com.chainsys.musicapp.util.Logger;
  * 
  * @author seen2380 Displays premium members name
  */
+
+@Repository
 public class AccountTab5Tab1DAOImpl implements AccountTab5Tab1DAO {
 	public List<String> accountInfo(String str) throws DbException {
 		List<String> li = null;

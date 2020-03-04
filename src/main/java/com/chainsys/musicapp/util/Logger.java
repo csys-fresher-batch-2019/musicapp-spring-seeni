@@ -1,5 +1,8 @@
 package com.chainsys.musicapp.util;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Logger {
 
 	public static Logger getInstanceOf() {

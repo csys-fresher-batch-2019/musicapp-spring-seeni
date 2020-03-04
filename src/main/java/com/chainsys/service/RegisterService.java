@@ -2,10 +2,12 @@ package com.chainsys.service;
 
 import java.sql.SQLException;
 
+import org.springframework.stereotype.Service;
+
 import com.chainsys.models.Userlogin;
 import com.chainsys.musicapp.DAO.RegisterDAO;
 import com.chainsys.musicapp.implementation.RegisterDAOImpl;
-
+@Service
 public class RegisterService {
 
 	static RegisterDAO reg = new RegisterDAOImpl();
