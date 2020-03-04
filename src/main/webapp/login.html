@@ -3,21 +3,31 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
 	Enter your username
-	<form action="login">
 	<input type="text" id="username" required>
 	<br> Password
 	<input type="password" id="pwd" required>
 	<br>
 	<button onclick="loginvalid()" type="submit">Enter</button>
-	</form> 
 	<script type="text/javascript">
 		function loginvalid() {
 			var username=document.getElementById("username").value;
 			var pwd=document.getElementById("pwd").value;
-			login(username,pwd);
+			console.log(username);
+			console.log(pwd);
+			let url='https://apimusicappin.cfapps.io/api/login?username='+username+'&pwd='+pwd;
+			console.log(url);
+			$.getJSON(url,function(data){
+				console.log(data)
+				if(data){
+					document.location.href = "Table.html";
+				}else{
+					document.location.href = "login.jsp";
+				}
+			})
 		}
 	</script>
 </body>

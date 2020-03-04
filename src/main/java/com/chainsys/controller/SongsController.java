@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.chainsys.musicapp.DAO.SearchSongTab2DAO;
 import com.chainsys.musicapp.implementation.SearchSongTab2DAOImpl;
 import com.chainsys.musicapp.implementation.SongLinkDAOImpl;
+import com.chainsys.service.AdminDetailService;
 import com.chainsys.service.LoginService;
 
 @CrossOrigin(origins = "*")
@@ -45,5 +46,12 @@ public class SongsController {
 			@RequestParam("pwd") String pwd) throws ClassNotFoundException, SQLException {
 		return LoginService.login(username, pwd);
 //		return "login.html";
+	}
+	
+	@GetMapping("/adminlogin")
+	public boolean adminLogin(@RequestParam("email") String email,
+			@RequestParam("pwd") String pass) throws ClassNotFoundException, SQLException {
+		return AdminDetailService.adminDetailService(email, pass);
+		
 	}
 }
