@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,22 +19,25 @@ public class SearchSongTab2DAOImpl implements SearchSongTab2DAO {
 	 */
 
 	public List<String> searchSongName() throws ClassNotFoundException, SQLException {
-		List<String> arli = null;
-		String sql = "select song_name from song_list";
+		
+		String sql = "select song_number,song_name from song_list";
 		try (Connection con = Connection1.connection();
-				PreparedStatement pst = con.prepareStatement(sql);
-				ResultSet rs = pst.executeQuery();) {
+				Statement pst = con.createStatement();
+				ResultSet rs = pst.executeQuery(sql);) {
 			Logger.getInstanceOf().info(sql);
-			arli = new ArrayList<String>();
+			List<String> arli = new ArrayList<String>();
 			while (rs.next()) {
 				arli.add(rs.getString("song_name"));
-			}
-			
+				
+			}System.out.println(arli);
+			return arli;
 		} catch (Exception e) {
 			// throw new Exception(ErrorConstants.checkInput);
 			e.getMessage();
 		}
-		
-		return arli;
+		return null;
+	}public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		SearchSongTab2DAOImpl s=new SearchSongTab2DAOImpl();
+		s.searchSongName();
 	}
 }

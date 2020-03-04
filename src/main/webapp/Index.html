@@ -8,11 +8,10 @@
 <script>
 ​
 function loadProducts(){
-    let url = "https://apimusicappin.cfapps.io/api/songlist";
+    let url = "https://apimusicappin.cfapps.io/api/songpath";
     $.getJSON(url, function(data){
         let products = data;
-        console.log(products.length);
-        console.table(products);
+        console.log(products);
       displayProducts(products);
 ​
     });
@@ -23,7 +22,7 @@ function loadProducts(){
         var content = "";
         for(let p of products){
             i = i +1;
-            var row = `<tr><td>${i}</td><td>${p.songlist}</td></tr>`;
+            var row = `<tr><td>${i}</td><td>${p}</td></tr>`;
             content = content + row;
         }
         $("#productTbl").append(content);
@@ -39,9 +38,7 @@ function loadProducts(){
     <table border="1">
         <thead><tr><th>#</th><th>Name</th></tr></thead>
         <tbody id="productTbl">
-​
-​
-        </tbody>
+​		</tbody>
     </table>
 </body>
 </html>
