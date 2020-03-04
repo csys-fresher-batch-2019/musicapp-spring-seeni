@@ -48,7 +48,7 @@ public class SongsController {
 	}
 	
 	@GetMapping("/adminlogin")
-	public boolean adminLogin(@RequestParam("email") String email,
+	public boolean adminLogin(@RequestParam("username") String email,
 			@RequestParam("pwd") String pass) throws ClassNotFoundException, SQLException {
 		return AdminDetailService.adminDetailService(email, pass);
 		
