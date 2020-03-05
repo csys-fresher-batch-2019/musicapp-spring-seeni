@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.chainsys.models.SongList;
 import com.chainsys.musicapp.DAO.SearchSongTab2DAO;
 import com.chainsys.musicapp.implementation.SearchSongTab2DAOImpl;
 import com.chainsys.musicapp.implementation.SongLinkDAOImpl;
 import com.chainsys.service.AdminDetailService;
+import com.chainsys.service.InsertSongService;
 import com.chainsys.service.LoginService;
 
 @CrossOrigin(origins = "*")
@@ -22,17 +24,10 @@ import com.chainsys.service.LoginService;
 public class SongsController {
 
 	@GetMapping("/songlist")
-	public List<String> list() {
+	public List<String> list() throws ClassNotFoundException, SQLException {
 		SearchSongTab2DAO s1 = new SearchSongTab2DAOImpl();
-		List<String> song = new ArrayList<>();
-		try {
-			song = s1.searchSongName();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return song;
+		return s1.searchSongName();
+		
 	}
 	
 	@GetMapping("/songpath")
@@ -51,6 +46,9 @@ public class SongsController {
 	public boolean adminLogin(@RequestParam("username") String email,
 			@RequestParam("pwd") String pass) throws ClassNotFoundException, SQLException {
 		return AdminDetailService.adminDetailService(email, pass);
-		
+	}
+	@GetMapping("/insertSong")
+	public boolean insertSong(SongList sl) throws Exception {
+		return InsertSongService.insertSong(sl);
 	}
 }

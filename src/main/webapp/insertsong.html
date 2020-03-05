@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+Song name<input type="text" required><br>
+Music director<input type="text" ><br>
+Singers<input type="text"><br>
+Lyricist<input type="text"><br>
+Movie name<input type="text"><br>
+Songlink<input type="text"><br>
+<button type="submit" onclick="insertSongs()">Enter</button>
+</body>
+<script type="text/javascript">
+function insertSongs(){
+	var len=document.getElementsByTagName("input").length;
+	for(let i=0;i<len;i++){
+		var song=document.getElementsByTagName("input")[i].value;
+		console.log(song);
+	}
+}
+</script>
+</html>
