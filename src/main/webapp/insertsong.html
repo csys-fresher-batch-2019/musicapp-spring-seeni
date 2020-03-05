@@ -3,6 +3,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
 Song name<input type="text" id="sname" required><br>
@@ -15,8 +16,22 @@ Songlink<input type="text" id="slink" required><br>
 </body>
 <script type="text/javascript">
 function insertSongs(){
-	var len=document.getElementsByTagName("input").length;
-		let url=https://apimusicappin.cfapps.io/api/insertSong?sname=maranamass&mdir=ani&singer=ani&lyricist=ani&mname=petta&slink=Marana Mass.mp3;
+	var sName=document.getElementById("sname").value;
+	var mDir=document.getElementById("mdir").value;
+	var singer=document.getElementById("singer").value;
+	var lyricist=document.getElementById("lyricist").value;
+	var mName=document.getElementById("mname").value;
+	var sLink=document.getElementById("slink").value;
+		let url="https://apimusicappin.cfapps.io/api/insertSong?sname="+sName+"&mdir="+mDir+"&singer="+singer+"&lyricist="+lyricist+"&mname="+mName+"&slink="+sLink;
+		$.getJSON(url,function(data){
+			console.log(data)
+			if(data){
+				alert("Song successfully inserted");
+			}else{
+				alert("Not inserted")
+			}
+		})
+		
 	}
 </script>
 </html>

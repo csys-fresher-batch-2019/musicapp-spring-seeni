@@ -47,7 +47,7 @@ public class SongsController {
 			@RequestParam("pwd") String pass) throws ClassNotFoundException, SQLException {
 		return AdminDetailService.adminDetailService(email, pass);
 	}
-	@PostMapping("/insertSong")
+	@GetMapping("/insertSong")
 	public boolean insertSong(@RequestParam("sname") String sname,@RequestParam("mdir") String mdir,
 			@RequestParam("singer") String singers,@RequestParam("lyricist") String lyricist,
 			@RequestParam("mname") String mname,@RequestParam("slink") String slink) throws Exception {
