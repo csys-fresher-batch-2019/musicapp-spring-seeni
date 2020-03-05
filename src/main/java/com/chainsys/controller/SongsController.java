@@ -1,11 +1,11 @@
 package com.chainsys.controller;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -47,7 +47,7 @@ public class SongsController {
 			@RequestParam("pwd") String pass) throws ClassNotFoundException, SQLException {
 		return AdminDetailService.adminDetailService(email, pass);
 	}
-	@GetMapping("/insertSong")
+	@PostMapping("/insertSong")
 	public boolean insertSong(@RequestParam("sname") String sname,@RequestParam("mdir") String mdir,
 			@RequestParam("singer") String singers,@RequestParam("lyricist") String lyricist,
 			@RequestParam("mname") String mname,@RequestParam("slink") String slink) throws Exception {

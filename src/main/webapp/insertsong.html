@@ -5,21 +5,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-Song name<input type="text" required><br>
-Music director<input type="text" ><br>
-Singers<input type="text"><br>
-Lyricist<input type="text"><br>
-Movie name<input type="text"><br>
-Songlink<input type="text"><br>
+Song name<input type="text" id="sname" required><br>
+Music director<input type="text" id="mdir" ><br>
+Singers<input type="text" id="singer"><br>
+Lyricist<input type="text" id="lyricist"><br>
+Movie name<input type="text" id="mname"><br>
+Songlink<input type="text" id="slink" required><br>
 <button type="submit" onclick="insertSongs()">Enter</button>
 </body>
 <script type="text/javascript">
 function insertSongs(){
 	var len=document.getElementsByTagName("input").length;
-	for(let i=0;i<len;i++){
-		var song=document.getElementsByTagName("input")[i].value;
-		console.log(song);
+		let url=https://apimusicappin.cfapps.io/api/insertSong?sname=maranamass&mdir=ani&singer=ani&lyricist=ani&mname=petta&slink=Marana Mass.mp3;
 	}
-}
 </script>
 </html>
