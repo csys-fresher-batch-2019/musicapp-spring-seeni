@@ -48,7 +48,16 @@ public class SongsController {
 		return AdminDetailService.adminDetailService(email, pass);
 	}
 	@GetMapping("/insertSong")
-	public boolean insertSong(SongList sl) throws Exception {
+	public boolean insertSong(@RequestParam("sname") String sname,@RequestParam("mdir") String mdir,
+			@RequestParam("singer") String singers,@RequestParam("lyricist") String lyricist,
+			@RequestParam("mname") String mname,@RequestParam("slink") String slink) throws Exception {
+		SongList sl=new SongList();
+		sl.setSongName(sname);
+		sl.setMusicDirector(mdir);
+		sl.setSingers(singers);
+		sl.setLyricist(lyricist);
+		sl.setMovieName(mname);
+		sl.setSongLink(slink);
 		return InsertSongService.insertSong(sl);
 	}
 }
