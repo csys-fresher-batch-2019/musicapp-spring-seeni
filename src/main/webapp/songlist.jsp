@@ -7,6 +7,7 @@
 <%@ page import="com.chainsys.musicapp.implementation.SongLinkDAOImpl"%>
 <%@ page import="com.chainsys.models.SongList.*"%>
 <%@ page import="com.chainsys.musicapp.implementation.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <html>
 <head>
@@ -28,7 +29,6 @@ th, tr, td {
 	font-weight: bold;
 	color: #17150e;
 }
-
 thead {
 	font-size: 40px;
 	text-align: center;
@@ -41,9 +41,11 @@ thead {
 </head>
 <body style="text-align: center">
 
-	<%
+	<%-- <%
 		String input = request.getParameter("search");
-	%>
+	%> --%>
+<c:set var="input" scope="session" value="${search}"/>
+<c:out value="${input}"/>
 	<form action="SearchSongServlet">
 		Search : <input type="search" name="search"><br> <br>
 		<button type="submit">Search</button>
@@ -62,7 +64,6 @@ thead {
 		<tbody>
 			<%
 				int k = 1;
-
 					if (songList != null)
 						for (SongList song : songList) {
 							String songName = song.getSongName();
@@ -78,7 +79,6 @@ thead {
 			<%
 				}
 					else {
-
 						SongLinkDAOImpl sl = new SongLinkDAOImpl();
 						List<String> li = sl.songLink();
 						SearchSongTab2DAOImpl s = new SearchSongTab2DAOImpl();
@@ -96,6 +96,5 @@ thead {
 			%>
 		</tbody>
 	</table>
-
 </body>
 </html>
